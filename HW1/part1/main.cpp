@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
       {"log", 0, 0, 'l'},
       {"help", 0, 0, '?'},
       {0, 0, 0, 0}};
-
+  
   while ((opt = getopt_long(argc, argv, "s:l?", long_options, NULL)) != EOF)
   {
 
@@ -55,13 +55,13 @@ int main(int argc, char *argv[])
       return 1;
     }
   }
-
+  
   float *values = new float[N + VECTOR_WIDTH];
   int *exponents = new int[N + VECTOR_WIDTH];
   float *output = new float[N + VECTOR_WIDTH];
   float *gold = new float[N + VECTOR_WIDTH];
   initValue(values, exponents, output, gold, N);
-
+  
   clampedExpSerial(values, exponents, gold, N);
   clampedExpVector(values, exponents, output, N);
 
