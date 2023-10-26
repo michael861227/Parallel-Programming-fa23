@@ -56,7 +56,7 @@ int _pp_cntbits(__pp_mask &maska)
     if (maska.value[i])
       count++;
   }
-
+  
   PPLogger.addLog("cntbits", _pp_init_ones(), VECTOR_WIDTH);
 
   return count;
