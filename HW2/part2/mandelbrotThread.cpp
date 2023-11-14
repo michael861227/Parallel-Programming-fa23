@@ -40,10 +40,26 @@ void workerThreadStart(WorkerArgs *const args)
     // printf("Hello world from thread %d\n", args->threadId);
     
     /* Block Partition*/
-    int h_part = args -> height / args -> numThreads;
-    int startRow = h_part * args -> threadId;
-    mandelbrotSerial(args->x0, args->y0, args->x1, args->y1, args->width, 
-        args->height, startRow, h_part, args->maxIterations, args->output);
+    // int h_part = args -> height / args -> numThreads;
+    // int startRow = h_part * args -> threadId;
+    // double minSerial = 1e30;
+
+    // double startTime = CycleTimer::currentSeconds();
+    // mandelbrotSerial(args->x0, args->y0, args->x1, args->y1, args->width, 
+    //     args->height, startRow, h_part, args->maxIterations, args->output);
+    // double endTime = CycleTimer::currentSeconds();
+    // minSerial = std::min(minSerial, endTime - startTime);
+
+    // printf("Thread %d : %f ms\n", args->threadId, minSerial * 1000);
+
+    
+    /* Cyclic Partition*/
+    int step = args->numThreads;
+    int height = args->height;
+    for (int i = args->threadId; i < height; i += step){
+        mandelbrotSerial(args->x0, args->y0, args->x1, args->y1, args->width, args->height,
+            i, 1, args->maxIterations, args->output);
+    }
 
 }
 
