@@ -37,7 +37,14 @@ void workerThreadStart(WorkerArgs *const args)
     // Of course, you can copy mandelbrotSerial() to this file and 
     // modify it to pursue a better performance.
 
-    printf("Hello world from thread %d\n", args->threadId);
+    // printf("Hello world from thread %d\n", args->threadId);
+    
+    /* Block Partition*/
+    int h_part = args -> height / args -> numThreads;
+    int startRow = h_part * args -> threadId;
+    mandelbrotSerial(args->x0, args->y0, args->x1, args->y1, args->width, 
+        args->height, startRow, h_part, args->maxIterations, args->output);
+
 }
 
 //
