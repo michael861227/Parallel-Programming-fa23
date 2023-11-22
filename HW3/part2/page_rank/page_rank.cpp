@@ -8,6 +8,7 @@
 #include "../common/CycleTimer.h"
 #include "../common/graph.h"
 
+
 // pageRank --
 //
 // g:           graph to process (see common/graph.h)
@@ -15,20 +16,8 @@
 // damping:     page-rank algorithm's damping parameter
 // convergence: page-rank algorithm's convergence threshold
 //
-void pageRank(Graph g, double *solution, double damping, double convergence)
-{
 
-  // initialize vertex weights to uniform probability. Double
-  // precision scores are used to avoid underflow for large graphs
-
-  int numNodes = num_nodes(g);
-  double equal_prob = 1.0 / numNodes;
-  for (int i = 0; i < numNodes; ++i)
-  {
-    solution[i] = equal_prob;
-  }
-
-  /*
+/*
      For PP students: Implement the page rank algorithm here.  You
      are expected to parallelize the algorithm using openMP.  Your
      solution may need to allocate (and free) temporary arrays.
@@ -56,4 +45,94 @@ void pageRank(Graph g, double *solution, double damping, double convergence)
      }
 
    */
+
+void pageRank(Graph g, double *solution, double damping, double convergence)
+{
+  int numNodes = num_nodes(g);
+  double equal_prob = 1.0 / numNodes;
+  double *inter_score = (double *)malloc(sizeof(double) * numNodes);
+
+  double no_outgoing_sum;
+  double global_diff;
+
+  int num_thread = omp_get_max_threads();
+  double thread_no_outgoing_sum[num_thread][8]; // Padding 64 bytes to avoid false sharing (Assuming cache line is 64 bytes)
+  double thread_global_diff[num_thread][8];
+
+  #pragma omp parallel for
+  for (int i = 0; i < numNodes; ++i)
+  {
+    solution[i] = equal_prob;
+  }
+
+  while (1) {
+    no_outgoing_sum = 0.0;
+    global_diff = 0.0;
+
+    // Initialize thread_no_outgoing_sum, thread_global_diff
+    for (int i = 0; i < num_thread; i++) {
+      thread_no_outgoing_sum[i][0] = 0.0;
+      thread_global_diff[i][0] = 0.0;
+    }
+
+    // Calculate the sum of no outgoing node and intermediate score
+    #pragma omp parallel
+    {
+      int thread_id = omp_get_thread_num();
+      int n_thrds = omp_get_num_threads();
+
+      #pragma omp for schedule(dynamic, 1024)
+      for (int i = 0; i < numNodes; i++) {
+        int num_outgoing = outgoing_size(g, i);
+
+        if (num_outgoing == 0) {
+          thread_no_outgoing_sum[thread_id][0] += solution[i];
+        } else {
+          inter_score[i] = solution[i] / num_outgoing;
+        }
+      }
+    }
+
+    for (int i = 0; i < num_thread; i++) {
+      no_outgoing_sum += thread_no_outgoing_sum[i][0];
+    }
+    no_outgoing_sum *= damping / numNodes; // PageRank scores are divided evenly among all other pages.
+
+    #pragma omp parallel
+    {
+      int thread_id = omp_get_thread_num();
+      int n_thrds = omp_get_num_threads();
+
+      #pragma omp for schedule(dynamic, 1024)
+      for (int i = 0; i < numNodes; i++) {
+        const Vertex *start = incoming_begin(g, i);
+        const Vertex *end = incoming_end(g, i);
+        double sum = 0.0, abs_diff;
+
+        for (const Vertex *v = start; v != end; v++) {
+          sum += inter_score[*v];
+        }
+
+        sum = (damping * sum) + (1.0 - damping) / numNodes + no_outgoing_sum;
+
+        abs_diff = solution[i] - sum;
+        if (abs_diff < 0)
+          abs_diff = -abs_diff;
+        
+        thread_global_diff[thread_id][0] += abs_diff;
+        solution[i] = sum;
+      }
+    }
+
+    for (int i = 0; i < num_thread; i++) {
+      global_diff += thread_global_diff[i][0];
+    }
+
+    if (global_diff < convergence) {
+      break; // Convergence condition met, exit the loop
+    }
+  }
+
+  free(inter_score);
 }
+
