@@ -37,7 +37,7 @@ This course is lectured by 游逸平 at NYCU
 |  Programming Assignment V:  |     **_CUDA Programming_**     | :link: [link](./HW5/) |
 | Programming Assignment VI:  |    **_OpenCL Programming_**    | :link: [link](./HW6/) | -->
 
-<table align="center">
+<table>
     <thead>
     <tr>
         <th colspan="2"> Programming Assignment</th>
