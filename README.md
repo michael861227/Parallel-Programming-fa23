@@ -4,6 +4,8 @@ This course is lectured by 游逸平 at NYCU
 
 **Course Information** : [Parallel Programming](https://timetable.nycu.edu.tw/?r=main/crsoutline&Acy=112&Sem=1&CrsNo=535501&lang=zh-tw)
 
+<BR>
+
 ## Lecture
 
 ### L0: Course Introduction
@@ -21,6 +23,8 @@ This course is lectured by 游逸平 at NYCU
 ### L6: CUDA
 
 ### L7: OpenCL
+
+<BR>
 
 ## Programming Assignments
 
