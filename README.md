@@ -26,16 +26,7 @@ This course is lectured by 游逸平 at NYCU
 
 <BR>
 
-## Programming Assignments
-
-<!-- |                             |     Programming Assignment     |         Code          |
-| :-------------------------: | :----------------------------: | :-------------------: |
-|  Programming Assignment I:  |     **_SIMD Programming_**     | :link: [link](./HW1/) |
-| Programming Assignment II:  | **_Multi-thread Programming_** | :link: [link](./HW2/) |
-| Programming Assignment III: |    **_OpenMP Programming_**    | :link: [link](./HW3/) |
-| Programming Assignment IV:  |     **_MPI Programming_**      | :link: [link](./HW4/) |
-|  Programming Assignment V:  |     **_CUDA Programming_**     | :link: [link](./HW5/) |
-| Programming Assignment VI:  |    **_OpenCL Programming_**    | :link: [link](./HW6/) | -->
+## Programming Assignment
 
 <table>
     <thead>
@@ -89,7 +80,5 @@ This course is lectured by 游逸平 at NYCU
 ## Usage
 
 ```shell=
-$git@github.com:michael861227/Parallel-Programming-fa23.git
-$git submodule init
-$git submodule update
+$ git clone --recurse-submodules git@github.com:michael861227/Parallel-Programming-fa23.git
 ```
