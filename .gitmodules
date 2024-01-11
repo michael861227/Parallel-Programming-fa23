@@ -1,0 +1,3 @@
+[submodule "Parallel_Ray_Tracer"]
+	path = Parallel_Ray_Tracer
+	url = git@github.com:michael861227/Parallel_Ray_Tracer.git
