@@ -38,32 +38,32 @@ This course is lectured by 游逸平 at NYCU
     <tbody>
     <tr>
         <td> Programming Assignment I</td>
-        <td align="center"><b><i>SIMD Programming</td>
+        <td align="center"><b><i><a href='https://nycu-sslab.github.io/PP-f20/HW1/'>SIMD Programming</td>
         <td><a href='./HW1/'><span>&#128279;</span> Link</td>
     </tr>
     <tr>
         <td>Programming Assignment II</td>
-        <td align="center"><b><i>Multi-thread Programming</td>
+        <td align="center"><b><i><a href='https://nycu-sslab.github.io/PP-f20/HW2/'>Multi-thread Programming</td>
         <td><a href='./HW2/'><span>&#128279;</span> Link</td>
     </tr>
     <tr>
         <td>Programming Assignment III</td>
-        <td align="center"><b><i>OpenMP Programming</td>
+        <td align="center"><b><i><a href='https://nycu-sslab.github.io/PP-f20/HW3/'>OpenMP Programming</td>
         <td><a href='./HW3/'><span>&#128279;</span> Link</td>
     </tr>
     <tr>
         <td>Programming Assignment IV</td>
-        <td align="center"><b><i>MPI Programming</td>
+        <td align="center"><b><i><a href='https://nycu-sslab.github.io/PP-f20/HW4/'>MPI Programming</td>
         <td><a href='./HW4/'><span>&#128279;</span> Link</td>
     </tr>
     <tr>
         <td>Programming Assignment V</td>
-        <td align="center"><b><i>CUDA Programming</td>
+        <td align="center"><b><i><a href='https://nycu-sslab.github.io/PP-f20/HW5/'>CUDA Programming</td>
         <td><a href='./HW5/'><span>&#128279;</span> Link</td>
     </tr>
     <tr>
         <td>Programming Assignment VI</td>
-        <td align="center"><b><i>OpenCL Programming</td>
+        <td align="center"><b><i><a href='https://nycu-sslab.github.io/PP-f20/HW6/'>OpenCL Programming</td>
         <td><a href='./HW6/'><span>&#128279;</span> Link</td>
     </tr>
     <tr>
