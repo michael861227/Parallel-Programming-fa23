@@ -8,21 +8,15 @@ This course is lectured by 游逸平 at NYCU
 
 ## Lecture
 
-### L0: Course Introduction
-
-### L1: Parallel and Distributed Programming
-
-### L2: Parallel hardware and software
-
-### L3: Pthreads
-
-### L4: OpenMP
-
-### L5: MPI
-
-### L6: CUDA
-
-### L7: OpenCL
+| Lecture |                Description                 |
+| :-----: | :----------------------------------------: |
+|   L1    |         **_Course Introduction_**          |
+|   L2    | **_Parallel and Distributed Programming_** |
+|   L3    |    **_Parallel hardware and software_**    |
+|   L4    |               **_Pthreads_**               |
+|   L5    |                 **_MPI_**                  |
+|   L6    |                 **_CUDA_**                 |
+|   L7    |                **_OpenCL_**                |
 
 <BR>
 
