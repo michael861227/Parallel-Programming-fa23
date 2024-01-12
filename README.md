@@ -68,7 +68,7 @@ This course is lectured by 游逸平 at NYCU
     </tr>
     <tr>
         <td>Final Project</td>
-        <td align="center"><b><i>Parallel Ray Tracer</td>
+        <td align="center"><b><i><a href='https://github.com/michael861227/Parallel_Ray_Tracer/blob/main/report.pdf'>Parallel Ray Tracer</td>
         <td><a href='https://github.com/michael861227/Parallel_Ray_Tracer'><span>&#128279;</span> Link</td>
     </tr>
     </tbody>
