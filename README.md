@@ -1,8 +1,10 @@
 # Parallel Programming Fall 2023 @ NYCU
 
-This course is lectured by 游逸平 at NYCU
+## About This Repository
 
-**Course Information** : [Parallel Programming](https://timetable.nycu.edu.tw/?r=main/crsoutline&Acy=112&Sem=1&CrsNo=535501&lang=zh-tw)
+This repository is dedicated to the programming assignment for the Parallel Programming course in Fall 2023 at NYCU, lectured by Professor 游逸平
+
+See more [Parallel Programming](https://timetable.nycu.edu.tw/?r=main/crsoutline&Acy=112&Sem=1&CrsNo=535501&lang=zh-tw) course information
 
 <BR>
 
@@ -74,5 +76,5 @@ This course is lectured by 游逸平 at NYCU
 ## Usage
 
 ```shell=
-$ git clone --recurse-submodules git@github.com:michael861227/Parallel-Programming-fa23.git
+git clone --recurse-submodules git@github.com:michael861227/Parallel-Programming-fa23.git
 ```
